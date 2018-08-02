@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sVideos</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../node_modules/react/dist/react.js"></script>
+<script src="../node_modules/react-dom/dist/react-dom.js"></script>
+<h1>style</h1>
+<script>
+  // const ce = React.createElement;
+
+  const MyTitle = function(props) {
+    return React.createElement("div", null, React.createElement("h1", { style: { color: props.color } }, props.title));
+  };
+
+  const MyFirstComponent = function() {
+    return React.createElement("div", { id: "my-first-element" },
+      React.createElement(MyTitle, { title: "One", color: "Yellow" }),
+      React.createElement(MyTitle, { title: "Two", color: "Red" }),
+      React.createElement(MyTitle, { title: "Three", color: "Green" }),
+      React.createElement(MyTitle, { title: "Four", color: "Blue" })
+    );
+
+  };
+
+  ReactDOM.render(
+    React.createElement (MyFirstComponent),
+    document.getElementById('app')
+  );
+</script>
+
+</body>
+</html>

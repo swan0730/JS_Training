@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>svideo</title>
+  <link rel="stylesheet" href="/public/style.css"/>
+</head>
+<body>
+<div id="app"></div>
+<script src="/public/bundle.js"></script>
+<!--Top level react lib for create element and other things, life cycle method-->
+<script src="../node_modules/react/dist/react.js"></script>
+<!--Translate react componets to DOM nodes : Native UI or any
+i.e. Rendering layer, Render out to the DOM-->
+<script src="../node_modules/react-dom/dist/react-dom.js"></script>
+<script>
+
+  const ce = React.createElement
+  const MyFirstComponent = function() {
+    return ce("div", {id: 'my-first-component'},
+      ce(MyTitle, {title: 'one'}),
+      ce(MyTitle, {title: 'two'}),
+      ce(MyTitle, {title: 'three'}))
+  };
+
+  const MyTitle = function(props) {
+    return ce("div", null,
+      ce("h1", null, props.title));
+  };
+
+  ReactDOM.render(
+    // create a instance of react component
+    ce(MyFirstComponent),
+    document.getElementById("app")
+  );
+
+
+</script>
+</body>
+</html>
